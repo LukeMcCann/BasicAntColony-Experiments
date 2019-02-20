@@ -15,7 +15,7 @@ for i = 1 : antPop
         current_node = colony.ant(i).tour(end);
         
         % Calculate probabilities of all nodes
-        P_all_nodes = tau(current_node, :).^alpha.*eta(currentNode, :).^beta;
+        P_all_nodes = tau(current_node, :).^alpha.*eta(current_node, :).^beta;
         
         % Assign 0 to all visited nodes
         P_all_nodes(colony.ant(i).tour) = 0;
@@ -26,7 +26,7 @@ for i = 1 : antPop
         
         % Select next node based on calculated probability
         % Roulette Wheel
-        next_node = roulette_wheel(P);
+        next_node = rouletteWheel(P);
         colony.ant(i).tour = [colony.ant(i).tour, next_node];
         
     end
