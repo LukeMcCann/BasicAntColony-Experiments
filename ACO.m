@@ -26,7 +26,14 @@ tau0 = 10*1/( graph.n * mean(graph.edges(:) ));
 tau = tau0 * ones(graph.n, graph.n);
 
 % Edge desirability: shorter is more desirable
+% Can be reversed to find the longest path via graph.edges
 eta = 1 ./graph.edges;
+
+% Evaporation rate
+rho = 0.05;
+
+alpha = 1;
+beta = 1;
 
 % Main Loop
 for t = 1 : max
