@@ -23,7 +23,7 @@ for i = 1 : graph.n
         y1 = graph.node(i).y;
         y2 = graph.node(i).y;
         
-        graph.edges(i,j)=sqrt((x1 - x2)^2 + (y1 - y2)^2) 
+        graph.edges(i,j)= sqrt((x1 - x2)^2 + (y1 - y2)^2); 
     end
 end
 
