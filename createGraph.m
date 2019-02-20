@@ -1,4 +1,5 @@
 % Creates problem graph, calc distances between nodes.
+% Return graph
 function [graph] = createGraph()
 
 % Node Coordinates
@@ -21,7 +22,7 @@ for i = 1 : graph.n
         x2 = graph.node(j).x;
         
         y1 = graph.node(i).y;
-        y2 = graph.node(i).y;
+        y2 = graph.node(j).y;
         
         graph.edges(i,j)= sqrt((x1 - x2)^2 + (y1 - y2)^2); 
     end
