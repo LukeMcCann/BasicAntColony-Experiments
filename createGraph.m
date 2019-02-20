@@ -4,12 +4,13 @@ function [graph] = createGraph()
 
 % Node Coordinates
 x = [0.09, 0.16, 0.84, 0.70];
-y = [0.17, 0.52, 0.92, 0,16];
+y = [0.17, 0.52, 0.92, 0.16];
 
 graph.n = length(x);
 
 for i = 1 : graph.n 
-    graph.node(i).x = x(i); %add nodes to graph
+    %add nodes to graph
+    graph.node(i).x = x(i); 
     graph.node(i).y = y(i);
 end 
 
