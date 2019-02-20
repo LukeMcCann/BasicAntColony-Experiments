@@ -16,7 +16,18 @@ for i = 1 : graph.n -1
         x = [x1, x2];
         y = [y1, y2];
         
-        plot(x,y);
+        plot(x,y, '-k');
     end
 end
+
+% Draw nodes
+for i = 1 : graph.n
+     % return all values of nodes
+    x = [graph.node(:).x]
+    y = [graph.node(:).y]
+    
+    plot(x,y, 'oK');
+end
+title("Nodes and Edges")
+box("on")
 end
