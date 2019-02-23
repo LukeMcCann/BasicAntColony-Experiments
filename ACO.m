@@ -22,7 +22,7 @@ antPop = 10;
 % Pheromone concentration
 tau0 = 10*1/( graph.n * mean(graph.edges(:) ));
 
-% Create pheramone matrices
+% Create pheramone matrices 
 tau = tau0 * ones(graph.n, graph.n);
 
 % Edge desirability: shorter is more desirable
@@ -32,15 +32,20 @@ eta = 1 ./graph.edges;
 % Evaporation rate
 rho = 0.05;
 
+% Pheromone param
 alpha = 1;
+% Desirability param
 beta = 1;
 
 % Main Loop
 for t = 1 : max
     % Create Colony
-    
+    colony = [];
+    colony = createColony(graph, colony, antPop, tau, eta, alpha, beta);
     % Calculate Fitness
-    
+    for i = 1 : antPop
+        colony.ant(i).fitness = calculateFitness(colony.ant(i).tour, graph);
+    end
     % Find Best Solution
     
     % Update Pheromone Matrix
