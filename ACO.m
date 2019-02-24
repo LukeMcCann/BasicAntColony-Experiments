@@ -69,7 +69,10 @@ for t = 1 : max
     tau = updatePheromone(tau, colony);
     
     % Evaporate
+    tau = (1 - rho).* tau;
+    
     
     % Print Solution
-    
+    result = ["Iteration Number: ", num2str(t), "Shortest Path: ", num2str(colony.queen.fitness)];
+    disp(result);
 end
