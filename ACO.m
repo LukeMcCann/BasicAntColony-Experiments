@@ -66,6 +66,7 @@ for t = 1 : max
     colony.queen.fitness = best_fitness;
     
     % Update Pheromone Matrix
+    tau = updatePheromone(tau, colony);
     
     % Evaporate
     
