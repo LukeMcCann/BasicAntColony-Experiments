@@ -37,16 +37,33 @@ alpha = 1;
 % Desirability param
 beta = 1;
 
+best_fitness = inf;
+best_tour = [];
+
 % Main Loop
 for t = 1 : max
+    
     % Create Colony
     colony = [];
     colony = createColony(graph, colony, antPop, tau, eta, alpha, beta);
+    
     % Calculate Fitness
     for i = 1 : antPop
         colony.ant(i).fitness = calculateFitness(colony.ant(i).tour, graph);
     end
+    
     % Find Best Solution
+    allAntsFitness = [colony.ant(:).fitness];
+    [min_value, min_index] = min(allAntsFitness);
+    
+    if min_value < best_fitness
+        best_fitness = colony.ant(min_index).fitness;
+        best_tour = colony.ant(min_index).tour;
+    end
+    
+    % Update Queen
+    colony.queen.tour = best_tour;
+    colony.queen.fitness = best_fitness;
     
     % Update Pheromone Matrix
     
