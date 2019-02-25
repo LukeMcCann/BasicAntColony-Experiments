@@ -71,8 +71,15 @@ for t = 1 : max
     % Evaporate
     tau = (1 - rho).* tau;
     
-    
     % Print Solution
     result = ["Iteration Number: ", num2str(t), "Shortest Path: ", num2str(colony.queen.fitness)];
     disp(result);
+    
+    % Draw Solution Graph
+    subplot(1,3,2)
+    cla
+    drawBestTour(colony.queen, graph);
+  %  drawPheromone(tau, graph);
+    
+    drawnow
 end
