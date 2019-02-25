@@ -79,7 +79,12 @@ for t = 1 : max
     subplot(1,3,2)
     cla
     drawBestTour(colony.queen, graph);
-  %  drawPheromone(tau, graph);
+    
+    % Draw Pheromone Trail on graph
+    subplot(1,3,3)
+    cla
+    drawPheromone(tau, graph);
+    
     
     drawnow
 end
